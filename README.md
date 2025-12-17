@@ -23,8 +23,31 @@ V drugem (ločenem) terminalu zaženite razvojni strežnik za sprednji del:
 Bash
 ng serve
 Aplikacija bo dostopna na naslovu: http://localhost:4200/.
+```
+```
+📋 Sistemske in programske zahteve
+Za uspešno namestitev in zagon morajo biti izpolnjeni naslednji pogoji:
 
-🛠️ Funkcionalnosti za testiranje
+⚙️ Osnovna okolja
+* **Node.js (LTS)**: v18.x ali novejša (priporočeno v22.12.0)
+* **npm**: v10.x ali novejša
+* **Angular CLI**: v19.0.3
+
+📦 Ključni paketi (Dependencies)
+Znotraj projekta so uporabljeni naslednji specifični paketi, ki so nujni za delovanje:
+
+| Paket | Različica | Namen |
+| :--- | :--- | :--- |
+| **@angular/core** | ^19.0.0 | Osrednje ogrodje aplikacije (uporaba Signalov). |
+| **primeng** | ^19.0.0 | Knjižnica UI komponent (Table, Dialog, Button, InputText). |
+| **primeicons** | ^7.0.0 | Set ikon uporabljenih v uporabniškem vmesniku. |
+| **json-server** | ^0.17.4 | Simulacija REST API zalednega sistema. |
+| **rxjs** | ^7.8.1 | Reaktivno programiranje in upravljanje z asinhronimi podatki. |
+```
+
+
+
+## 🛠️ Funkcionalnosti za testiranje
 Ko sta oba strežnika aktivna, lahko preizkusite naslednje:
 
 Pregled podatkov: Tabela se samodejno napolni s podatki iz datoteke db.json.
@@ -39,8 +62,21 @@ Kliknite gumb "Save Changes".
 
 Preverjanje: Po kliku na gumb se izvede HTTP PUT klic, ki trajno posodobi podatke v db.json.
 ```
-
-
+ Struktura projekta
+student-system-task/
+├── src/
+│   ├── app/
+│   │   ├── students/              # Logika za upravljanje s študenti
+│   │   │   ├── student-overview/  # Komponenta za pregled in tabelo
+│   │   │   └── student.service.ts # API klici (GET, PUT)
+│   │   ├── app.config.ts          # Konfiguracija aplikacije in PrimeNG
+│   │   └── app.routes.ts          # Usmerjanje (Routing)
+│   ├── assets/                    # Statične datoteke in slike
+│   └── styles.scss                # Globalni stili in PrimeNG tema
+├── db.json                        # Lokalna baza podatkov (JSON server)
+├── package.json                   # Seznam odvisnosti in skript
+└── angular.json                   # Konfiguracija Angular ogrodja
+```
 
 
 ## 💻  Tehnološki sklad

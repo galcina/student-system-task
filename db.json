@@ -7,7 +7,7 @@
       "courses": [
         "Math",
         "Physics",
-        "French"
+        "German"
       ],
       "status": "Active"
     },
@@ -20,17 +20,6 @@
         "History"
       ],
       "status": "Inactive"
-    },
-    {
-      "id": "16d5",
-      "firstName": "Lojze",
-      "lastName": "Benedičič",
-      "courses": [
-        "Math",
-        "English",
-        "History"
-      ],
-      "status": "Active"
     },
     {
       "id": "4",
@@ -451,14 +440,539 @@
       "status": "Inactive"
     },
     {
-      "id": "eabd",
+      "id": "44",
+      "firstName": "Aljaž",
+      "lastName": "Bizjak",
+      "courses": [
+        "Math",
+        "Physics"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "45",
+      "firstName": "Petra",
+      "lastName": "Lavrič",
+      "courses": [
+        "Biology",
+        "Chemistry"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "46",
+      "firstName": "Simon",
+      "lastName": "Oblak",
+      "courses": [
+        "Computer Science",
+        "Math"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "47",
+      "firstName": "Klara",
+      "lastName": "Zeme",
+      "courses": [
+        "English",
+        "Literature"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "48",
+      "firstName": "Miha",
+      "lastName": "Koren",
+      "courses": [
+        "History",
+        "Geography"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "49",
+      "firstName": "Nika",
+      "lastName": "Babnik",
+      "courses": [
+        "Art",
+        "Music"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "50",
+      "firstName": "Urban",
+      "lastName": "Hrovat",
+      "courses": [
+        "Physics",
+        "Chemistry"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "51",
+      "firstName": "Lana",
+      "lastName": "Rozman",
+      "courses": [
+        "Biology",
+        "Geography"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "52",
+      "firstName": "Žiga",
+      "lastName": "Kastelic",
+      "courses": [
+        "Math",
+        "Computer Science"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "53",
+      "firstName": "Ajda",
+      "lastName": "Robnik",
+      "courses": [
+        "English",
+        "History"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "54",
+      "firstName": "Tim",
+      "lastName": "Lenart",
+      "courses": [
+        "Physics",
+        "Math",
+        "English"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "55",
+      "firstName": "Lara",
+      "lastName": "Valenčič",
+      "courses": [
+        "Biology",
+        "Chemistry",
+        "P.E."
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "56",
+      "firstName": "Bine",
+      "lastName": "Zajc",
+      "courses": [
+        "History",
+        "Geography",
+        "Economics"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "57",
+      "firstName": "Tara",
+      "lastName": "Kraševec",
+      "courses": [
+        "Art",
+        "Literature"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "58",
+      "firstName": "Ian",
+      "lastName": "Perko",
+      "courses": [
+        "Computer Science",
+        "Physics"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "59",
+      "firstName": "Ela",
+      "lastName": "Petek",
+      "courses": [
+        "Music",
+        "Art"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "60",
       "firstName": "Gal",
+      "lastName": "Kralj",
+      "courses": [
+        "Math",
+        "Physics",
+        "Chemistry"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "61",
+      "firstName": "Ema",
+      "lastName": "Logar",
+      "courses": [
+        "English",
+        "History",
+        "Geography"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "62",
+      "firstName": "Vid",
+      "lastName": "Majcen",
+      "courses": [
+        "Computer Science",
+        "Math"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "63",
+      "firstName": "Neža",
+      "lastName": "Hočevar",
+      "courses": [
+        "Biology",
+        "Chemistry"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "64",
+      "firstName": "Mark",
+      "lastName": "Dolenc",
+      "courses": [
+        "Physics",
+        "P.E."
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "65",
+      "firstName": "Nina",
+      "lastName": "Pavlin",
+      "courses": [
+        "English",
+        "Literature",
+        "History"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "66",
+      "firstName": "Tilen",
+      "lastName": "Kotnik",
+      "courses": [
+        "Math",
+        "Computer Science"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "67",
+      "firstName": "Lana",
+      "lastName": "Ribič",
+      "courses": [
+        "Art",
+        "Music",
+        "English"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "68",
+      "firstName": "Jan",
+      "lastName": "Kordež",
+      "courses": [
+        "History",
+        "Geography"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "69",
+      "firstName": "Ana",
+      "lastName": "Vrhovnik",
+      "courses": [
+        "Biology",
+        "Chemistry",
+        "Physics"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "70",
+      "firstName": "Miha",
+      "lastName": "Šubic",
+      "courses": [
+        "Math",
+        "Physics"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "71",
+      "firstName": "Tjaša",
+      "lastName": "Vidic",
+      "courses": [
+        "English",
+        "History"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "72",
+      "firstName": "Luka",
+      "lastName": "Habjan",
+      "courses": [
+        "Computer Science",
+        "Math",
+        "Economics"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "73",
+      "firstName": "Maja",
+      "lastName": "Sever",
+      "courses": [
+        "Biology",
+        "Geography"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "74",
+      "firstName": "Žan",
+      "lastName": "Blažič",
+      "courses": [
+        "Physics",
+        "Chemistry"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "75",
+      "firstName": "Katarina",
+      "lastName": "Černe",
+      "courses": [
+        "English",
+        "Literature"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "76",
+      "firstName": "Rok",
+      "lastName": "Kobal",
+      "courses": [
+        "Math",
+        "Computer Science"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "77",
+      "firstName": "Teja",
+      "lastName": "Sečnik",
+      "courses": [
+        "Art",
+        "Music"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "78",
+      "firstName": "Andraž",
+      "lastName": "Lesjak",
+      "courses": [
+        "Physics",
+        "Math",
+        "P.E."
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "79",
+      "firstName": "Eva",
+      "lastName": "Hladnik",
+      "courses": [
+        "Biology",
+        "Chemistry"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "80",
+      "firstName": "Nejc",
+      "lastName": "Pirc",
+      "courses": [
+        "History",
+        "Geography",
+        "Economics"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "81",
+      "firstName": "Sara",
+      "lastName": "Rupreht",
+      "courses": [
+        "English",
+        "Literature",
+        "Art"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "82",
+      "firstName": "Gal",
+      "lastName": "Ferlin",
+      "courses": [
+        "Computer Science",
+        "Math",
+        "Physics"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "83",
+      "firstName": "Ajda",
+      "lastName": "Klinar",
+      "courses": [
+        "Biology",
+        "Chemistry",
+        "P.E."
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "84",
+      "firstName": "Tim",
+      "lastName": "Potočar",
+      "courses": [
+        "Math",
+        "Physics"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "85",
+      "firstName": "Lara",
+      "lastName": "Mavsar",
+      "courses": [
+        "English",
+        "History",
+        "Geography"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "86",
+      "firstName": "Žan",
+      "lastName": "Močnik",
+      "courses": [
+        "Computer Science",
+        "Economics"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "87",
+      "firstName": "Tina",
+      "lastName": "Hafner",
+      "courses": [
+        "Biology",
+        "Chemistry",
+        "Physics"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "88",
+      "firstName": "Bine",
+      "lastName": "Novšak",
+      "courses": [
+        "Math",
+        "P.E."
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "89",
+      "firstName": "Ema",
+      "lastName": "Tratar",
+      "courses": [
+        "English",
+        "Literature"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "90",
+      "firstName": "Vid",
+      "lastName": "Klemenčič",
+      "courses": [
+        "Physics",
+        "Computer Science"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "91",
+      "firstName": "Neža",
+      "lastName": "Kržič",
+      "courses": [
+        "Biology",
+        "Geography"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "92",
+      "firstName": "Mark",
+      "lastName": "Lužar",
+      "courses": [
+        "Math",
+        "Physics",
+        "Chemistry"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": "93",
+      "firstName": "Katarina",
+      "lastName": "Obrekar",
+      "courses": [
+        "English",
+        "History",
+        "Art"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": 94,
+      "firstName": "Mojca",
+      "lastName": "Pokraculja",
+      "courses": [
+        "History"
+      ],
+      "status": "Inactive"
+    },
+    {
+      "id": 95,
+      "firstName": "Gal ",
       "lastName": "Krajnik",
       "courses": [
         "Psychology",
-        "P.E.",
-        "English",
-        "Economics"
+        "P.E."
       ],
       "status": "Active"
     }

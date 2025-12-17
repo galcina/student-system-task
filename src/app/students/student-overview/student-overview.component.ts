@@ -1,10 +1,8 @@
 import { Component, OnInit, computed, signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
-import { CheckboxModule } from 'primeng/checkbox';
 import { MenuModule } from 'primeng/menu';
 import { ConfirmEventType, ConfirmationService, MessageService, MenuItem } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
@@ -18,11 +16,9 @@ import { StudentFormDialogComponent, StudentFormMode } from '../student-form-dia
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule,
     TableModule,
     ButtonModule,
     TagModule,
-    CheckboxModule,
     MenuModule,
     ToastModule,
     ConfirmDialogModule,
@@ -53,7 +49,7 @@ import { StudentFormDialogComponent, StudentFormMode } from '../student-form-dia
             [value]="students()"
             [paginator]="true"
             [rows]="rowsPerPage()"
-            [rowsPerPageOptions]="[10, 25, 50, 100]"
+            [rowsPerPageOptions]="[10, 20, 25, 50, 100]"
             [totalRecords]="students().length"
             [first]="first()"
             (onPage)="onPageChange($event)"
@@ -62,9 +58,6 @@ import { StudentFormDialogComponent, StudentFormMode } from '../student-form-dia
           >
             <ng-template pTemplate="header">
               <tr>
-                <th style="width: 3rem;">
-                  <p-checkbox [(ngModel)]="selectAll" (onChange)="onSelectAllChange()"></p-checkbox>
-                </th>
                 <th>Student</th>
                 <th>Courses</th>
                 <th>Status</th>
@@ -73,12 +66,6 @@ import { StudentFormDialogComponent, StudentFormMode } from '../student-form-dia
             </ng-template>
             <ng-template pTemplate="body" let-student>
               <tr>
-                <td>
-                  <p-checkbox 
-                    [ngModel]="isSelected(student)"
-                    (ngModelChange)="toggleSelection(student, $event)"
-                  ></p-checkbox>
-                </td>
                 <td>
                   <div class="student-cell">
                     <div class="student-initials">
@@ -89,7 +76,7 @@ import { StudentFormDialogComponent, StudentFormMode } from '../student-form-dia
                         {{ student.firstName }} {{ student.lastName }}
                       </div>
                       <div class="student-id">
-                        #{{ student.id }}
+                        #{{ getRowNumber(student) }}
                       </div>
                     </div>
                   </div>
@@ -158,8 +145,6 @@ import { StudentFormDialogComponent, StudentFormMode } from '../student-form-dia
 export class StudentOverviewComponent implements OnInit {
   students = signal<Student[]>([]);
   loading = signal(false);
-  selectedStudents = signal<Set<number | string>>(new Set());
-  selectAll = false;
   rowsPerPage = signal(20);
   first = signal(0);
 
@@ -185,7 +170,8 @@ export class StudentOverviewComponent implements OnInit {
     this.loading.set(true);
     this.studentService.getStudents().subscribe({
       next: (students) => {
-        this.students.set(students ?? []);
+        const sortedStudents = this.sortStudentsAlphabetically(students ?? []);
+        this.students.set(sortedStudents);
         this.loading.set(false);
       },
       error: () => {
@@ -196,6 +182,23 @@ export class StudentOverviewComponent implements OnInit {
           detail: 'Failed to load students'
         });
       }
+    });
+  }
+
+  private sortStudentsAlphabetically(students: Student[]): Student[] {
+    return [...students].sort((a, b) => {
+      // Najprej primerjaj po priimku
+      const lastNameA = (a.lastName || '').toLowerCase();
+      const lastNameB = (b.lastName || '').toLowerCase();
+      
+      if (lastNameA !== lastNameB) {
+        return lastNameA.localeCompare(lastNameB, 'sl');
+      }
+      
+      // Če sta priimka enaka, primerjaj po imenu
+      const firstNameA = (a.firstName || '').toLowerCase();
+      const firstNameB = (b.firstName || '').toLowerCase();
+      return firstNameA.localeCompare(firstNameB, 'sl');
     });
   }
 
@@ -218,7 +221,24 @@ export class StudentOverviewComponent implements OnInit {
 
   onDialogSave(studentFromForm: Student): void {
     if (this.dialogMode() === 'create') {
-      this.studentService.createStudent(studentFromForm).subscribe({
+      // Določi naslednji zaporedni ID (ignorira nenumerične ID-je, npr. 'eabd')
+      const maxId = this.students().reduce((max, s) => {
+        const rawId = s.id as unknown;
+        const numericId =
+          typeof rawId === 'string' ? parseInt(rawId, 10) : (rawId as number | undefined);
+        if (!numericId || Number.isNaN(numericId)) {
+          return max;
+        }
+        return Math.max(max, numericId);
+      }, 0);
+
+      const nextId = maxId + 1;
+      const payload: Student = {
+        ...studentFromForm,
+        id: nextId
+      };
+
+      this.studentService.createStudent(payload).subscribe({
         next: () => {
           this.messageService.add({
             severity: 'success',
@@ -241,10 +261,16 @@ export class StudentOverviewComponent implements OnInit {
       if (!current || !current.id) {
         return;
       }
+// --- DOKONČNI POPRAVEK: Prisilna pretvorba ID-ja v NUMBER ---
+const studentId: number = typeof current.id === 'string' 
+? parseInt(current.id, 10) 
+: (current.id as number);
+
+
 
       const updated: Student = {
         ...current,
-        id: current.id,
+        id: studentId,
         courses: studentFromForm.courses
       };
 
@@ -307,31 +333,6 @@ export class StudentOverviewComponent implements OnInit {
     return (f + l).toUpperCase();
   }
 
-  isSelected(student: Student): boolean {
-    return this.selectedStudents().has(student.id as number | string);
-  }
-
-  toggleSelection(student: Student, checked: boolean): void {
-    const current = this.selectedStudents();
-    const updated = new Set(current);
-    if (checked) {
-      updated.add(student.id as number | string);
-    } else {
-      updated.delete(student.id as number | string);
-    }
-    this.selectedStudents.set(updated);
-    this.selectAll = updated.size === this.students().length;
-  }
-
-  onSelectAllChange(): void {
-    if (this.selectAll) {
-      const allIds = new Set(this.students().map(s => s.id as number | string));
-      this.selectedStudents.set(allIds);
-    } else {
-      this.selectedStudents.set(new Set());
-    }
-  }
-
   toggleMenu(event: Event, student: Student): void {
     event.stopPropagation();
     this.menuStudent.set(student);
@@ -373,6 +374,11 @@ export class StudentOverviewComponent implements OnInit {
   getPaginationEnd(): number {
     const end = this.first() + this.rowsPerPage();
     return Math.min(end, this.students().length);
+  }
+
+  getRowNumber(student: Student): number {
+    const index = this.students().findIndex(s => s.id === student.id);
+    return index >= 0 ? index + 1 : 0;
   }
 }
 

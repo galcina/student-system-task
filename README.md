@@ -1,59 +1,58 @@
-# StudentApp
+# Študentski informacijski sistem (Student System Task)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+Ta projekt je razvit kot rešitev za upravljanje podatkov o študentih in njihovih predmetih. Aplikacija omogoča pregled seznama študentov ter urejanje njihovih obveznosti prek interaktivnega uporabniškega vmesnika.
 
-## Development server
+## 🚀 Navodila za namestitev in zagon
 
-To start a local development server, run:
+Za pravilno delovanje aplikacije morata biti hkrati zagnana dva strežnika: zaledni sistem (simulacija baze) in sprednji del (Angular aplikacija).
 
+### 1. Namestitev odvisnosti
+Pred prvim zagonom v korenu projekta namestite vse potrebne pakete:
 ```bash
+npm install
+2. Zagon zalednega strežnika (JSON Server)
+
+Zaledni sistem uporablja json-server za simulacijo API-ja in shranjevanje podatkov v db.json. Strežnik je nastavljen na vrata 3001. V prvem terminalu zaženite:
+
+Bash
+npm run server
+3. Zagon Angular aplikacije
+
+V drugem (ločenem) terminalu zaženite razvojni strežnik za sprednji del:
+
+Bash
 ng serve
+Aplikacija bo dostopna na naslovu: http://localhost:4200/.
+
+🛠️ Funkcionalnosti za testiranje
+Ko sta oba strežnika aktivna, lahko preizkusite naslednje:
+
+Pregled podatkov: Tabela se samodejno napolni s podatki iz datoteke db.json.
+
+Urejanje predmetov (Courses):
+
+Izberite študenta in kliknite na ikono/gumb za urejanje.
+
+V vnosno polje za predmete vpišite ime novega predmeta in pritisnite Enter.
+
+Kliknite gumb "Save Changes".
+
+Preverjanje: Po kliku na gumb se izvede HTTP PUT klic, ki trajno posodobi podatke v db.json.
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
+## 💻  Tehnološki sklad
+Frontend: Angular 21 (z uporabo Signalov za upravljanje stanja).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+UI Komponente: PrimeNG (za tabelo in modalna okna).
 
-```bash
-ng generate --help
-```
+Backend simulacija: json-server (teče na portu 3001).
 
-## Building
+Oblikovanje: SCSS.
 
-To build the project run:
+### Avtor: Gal Krajnik
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
